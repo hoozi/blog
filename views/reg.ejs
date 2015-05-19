@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div style="width:500px;margin:20px auto;padding:20px;border-radius:5px;border:1px solid #ddd">
+	<h1>用户注册</h1>
+	<p class="msg"><%= msg || ""%></p>
+	<form action="/users/reg" method="post">
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">用户名</label>
+	    <input type="text" name="username" class="form-control" placeholder="username">
+	  </div>
+	  <div class="form-group">
+	    <label for="password">Password</label>
+	    <input type="password" name="password" class="form-control"  placeholder="Password">
+	  </div>
+	  <div class="form-group">
+	    <label for="password2">confirmPassword</label>
+	    <input type="password" name="password2" class="form-control"  placeholder="confirmPassword">
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputFile">File input</label>
+	    <input type="file" id="exampleInputFile">
+	    <p class="help-block">Example block-level help text here.</p>
+	  </div>
+	  <div class="checkbox">
+	    <label>
+	      <input type="checkbox"> Check me out
+	    </label>
+	  </div>
+	  <button type="submit" class="btn btn-default">Submit</button>
+	</form>
+</div>
+</body>
+</html>
