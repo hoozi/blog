@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+  <meta charset="UTF-8">
+    <title><%= webName %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+   	<% if(user) {%>
+		你好:<a href="/users/manage"><%= user.userName %></a>
+		|
+		<a href="/users/logout">退出</a>
+   	<%} else {%>
+   		<a href="/users/reg">注册</a>
+    	<a href="/users/login">登录</a>
+    <%}%>
   </body>
 </html>

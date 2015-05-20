@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>管理</title>
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div style="width:500px;margin:20px auto;padding:20px;border-radius:5px;border:1px solid #ddd">
+	<h1>修改<%if(userName){%><%= userName%><%}%>的密码</h1>
+	<p class="msg">
+	<%if(typeof msg!=="undefined") {%>
+		<%= msg%>
+	<%}%>	
+	</p>
+	<form action="/users/password" method="post">
+	  <div class="form-group">
+	    <label>旧密码</label>
+	    <input type="password" name="oldPassword" class="form-control" placeholder="旧密码">
+	  </div>
+	  <div class="form-group">
+	    <label>新密码</label>
+	    <input type="password" name="newPassword" class="form-control"  placeholder="新密码密码">
+	  </div>
+	  <div class="form-group">
+	    <label for="password2">确认密码</label>
+	    <input type="password" name="newPassword2" class="form-control"  placeholder="确认新密码">
+	  </div>
+	  <button type="submit" class="btn btn-default">修改</button>
+	</form>
+</div>
+</body>
+</html>
