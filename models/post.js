@@ -7,12 +7,15 @@
  */
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/data');
-var posts = new Schema({
+var moment = require("moment");
+var post = new Schema({
 	title: String,
 	content: String,
 	img: Buffer,
 	createTime: {type: Date, default: Date.now }
 });
-
-module.exports = mongoose.model("post",posts);
+post.path('createTime').get(function(){
+	return moment().format("YYYY-MM-DD")
+});
+post.set('toObject', { getters: true });
+mongoose.model("post", post);

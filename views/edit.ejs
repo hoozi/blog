@@ -2,31 +2,31 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>创建文章</title>
+	<title>编辑文章</title>
 	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
 <div class="container blog-container">
 	<div class="content">
-		<h1>创建文章</h1>
+		<h1>编辑文章</h1>
 		<p class="msg"><%if(typeof msg!=="undefined") {%>
 			<%= msg%>
 		<%}%></p>
-		<form action="/post/create" method="post" enctype="multipart/form-data">
+		<form action="/post/edit/<%=post._id%>" method="post" enctype="multipart/form-data">
 		  <div class="form-group">
 		    <label>标题</label>
-		    <input type="text" name="title" class="form-control" placeholder="标题">
+		    <input type="text" name="title" class="form-control" placeholder="标题" value="<%=post.title%>">
 		  </div>
 		  <div class="form-group">
 		    <label>内容</label>
-		    <textarea class="form-control" rows="3" name="content"></textarea>
+		    <textarea class="form-control" rows="3" name="content" value="<%=post.content%>"><%=post.content%></textarea>
 		  </div>
 		  <div class="form-group">
 		    <label>图片</label>
 		    <input type="file" name="img" id="">
 		  </div>
-		  <button type="submit" class="btn btn-default btn-primary">创建</button>
+		  <button type="submit" class="btn btn-default btn-primary">修改</button>
 		</form>
 	</div>
 	<div class="footer text-right">

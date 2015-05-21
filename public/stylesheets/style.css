@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+.blog-container{width:500px;margin:20px auto;padding:20px;border-radius:5px;border:1px solid #ddd}
+.content{margin:20px 0;}
+.v-c{padding-top:22px;}
+.t-c{line-height:35px}

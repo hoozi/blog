@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+    <title><%= webName %></title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+   	<div class="container">
+        <div class="header">
+            <h1><%= post.title %> <small><%= post.createTime %></small></h1>
+        </div>
+        <div class="content">
+            <div class="list-group">
+                  <img src="<%if(post.img){%><%=post.img%><%}%>" alt="" class="img-responsive">
+                  <div class="list-group-item">
+                      <%= post.content %>
+                  </div>
+            </div>
+        </div>
+        <div class="footer text-right">
+            Blog by <a href="https://github.com/strongloop/express">node-express</a>+<a href="http://getbootstrap.com/">bootstrap</a>
+        </div>
+    </div>
+  </body>
+</html>

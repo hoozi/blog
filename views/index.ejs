@@ -3,17 +3,46 @@
   <head>
   <meta charset="UTF-8">
     <title><%= webName %></title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-   	<% if(user) {%>
-		你好:<a href="/users/manage"><%= user.userName %></a>
-		|
-		<a href="/users/logout">退出</a>
-   	<%} else {%>
-   		<a href="/users/reg">注册</a>
-    	<a href="/users/login">登录</a>
-    <%}%>
+   	<div class="container">
+        <div class="header clearfix">
+         <h1 class="pull-left">博客</h1>
+         <div class="pull-right v-c"> 
+         <% if(user) {%>
+             你好: "<%= user.userName %>" <a href="/user/logout">退出</a>　
+             <a href="/user/manage" class="btn btn-primary" role="button">管理</a>
+             <a href="/post/create" class="btn btn-primary" role="button">创建一篇文章</a>
+           <%} else {%>
+               <a href="/user/reg" class="btn btn-primary" role="button">注册</a>
+               <a href="/user/login" class="btn btn-primary" role="button">登录</a>
+           <%}%>
+          </div>
+        </div>
+        <div class="content">
+            <div class="list-group">
+              <%if(typeof posts!=="undefined"&&posts.length) {%>
+                <%posts.forEach(function(post, index) {%>
+                  <div class="list-group-item clearfix">
+                      <div class="pull-left t-c"> 
+                          <a href="/post/post<%= post._id %>"><%= post.title %></a> <span><%= post.createTime %></span></div>
+                      <div class="pull-right">
+                            <a href="/post/edit/<%= post._id %>" class="btn btn-primary" role="button">编辑</a>
+                            <a href="/post/delete/<%= post._id %>" class="btn btn-danger" role="button">删除</a>
+                      </div>
+                  </div>
+                <%})%>
+              <%} else {%>
+                  <p class="list-group-item list-group-item-danger">暂无文章</p>
+              <% } %>
+            </div>
+        </div>
+        <div class="footer text-right">
+            Blog by <a href="https://github.com/strongloop/express">node-express</a>+<a href="http://getbootstrap.com/">bootstrap</a>
+        </div>
+    </div>
+
   </body>
 </html>

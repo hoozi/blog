@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../module/users');
+var User = require('../models').User;
 var validator = require("validator");
-var uid = require("shortid");
-var users = [];
 /* GET users listing. */
 
 function validate(req, res, next) {
